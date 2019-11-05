@@ -19,6 +19,11 @@ while player is False:
 	print("***********************************\n")
 	print("Computer lives: ", computer_lives, "/5\n")
 	print("Player lives: ", player_lives, "/5\n")
+	print("==================================\n")
+	print("Welcome to Rock, Paper, Scissors...\n")
+	print("The rules are very simple; paper covers rock, rock smahes scissors and scissors cuts paper\n")
+	print("Ready to play?\n")
+	print("==================================\n")
 	print("Choose your weapon!\n")
 	print("***********************************\n")
 
@@ -37,6 +42,16 @@ while player is False:
 
 	elif player.lower()=="rock":
 		if computer == "paper":
+						print("""
+
+     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+
+					""")
 			print("you lose :( ", computer, "covers", player, "\n")
 			player_lives = player_lives - 1
 		else:
@@ -45,6 +60,16 @@ while player is False:
 
 	elif player.lower() =="paper":
 		if computer == "scissors":
+						print("""
+
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+
+					""")
 			print("you lose :( ", computer, "cuts", player, "\n")
 			player_lives = player_lives - 1
 		else:
@@ -53,6 +78,16 @@ while player is False:
 
 	elif player.lower() =="scissors":
 		if computer == "rock":
+			print("""
+
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+
+					""")
 			print("you lose :( ", computer, "smashes", player, "\n")
 			player_lives = player_lives - 1
 		else:
