@@ -1,24 +1,15 @@
 #import the random package so that we can generate a random choice 
 from random import randint
+from gameFunctions import winlose, gamedunn
 #changes
 #set up some variables for player and AI lives
-player_lives = 5
-computer_lives = 5 
 
-#choices is an array => an array is a container that can hold multiple values
-choices = ["rock", "paper", "scissors"]
-#choices go "0 1 2" not "1 2 3" ie. rock = 0 paper = 1 scissors = 2
-#set the computer variable to one of these choices
-computer = choices[randint(0,2)]
 
-#set up game loop so that we don't have to restart al the time
-player = False
-
-while player is False: 
+while gamedunn.player is False: 
 	#set player to true
 	print("***********************************\n")
-	print("Computer lives: ", computer_lives, "/5\n")
-	print("Player lives: ", player_lives, "/5\n")
+	print("Computer lives: ", gamedunn.computer_lives, "/", gamedunn.total_lives,"\n")
+	print("Player lives: ", gamedunn.player_lives, "/\n")
 	print("==================================\n")
 	print("Welcome to Rock, Paper, Scissors...\n")
 	print("The rules are very simple; paper covers rock, rock smahes scissors and scissors cuts paper\n")
@@ -32,67 +23,37 @@ while player is False:
 
 
 
-	print("computer chose ", computer, "\n")
+	print("computer chose ", gamedunn.computer, "\n")
 	print("player chose ", player, "\n")
 
 	if player == "quit":
 		exit()
-	elif computer == player:
+	elif gamedunn.computer == player:
 		print("tie! no one wins, play again")
 
 	elif player.lower()=="rock":
-		if computer == "paper":
-						print("""
-
-     _______
----'    ____)____
-           ______)
-          _______)
-         _______)
----.__________)
-
-					""")
-			print("you lose :( ", computer, "covers", player, "\n")
+		if gamedunn.computer == "paper":
+			print("you lose :( ", gamedunn.computer, "covers", player, "\n")
 			player_lives = player_lives - 1
 		else:
-			print("you win :) ", player, "smashes", computer, "\n")
-			computer_lives = computer_lives - 1
+			print("you win :) ", player, "smashes", gamedunn.computer, "\n")
+			gamedunn.computer_lives = gamedunn._lives - 1
 
 	elif player.lower() =="paper":
-		if computer == "scissors":
-						print("""
-
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-
-					""")
-			print("you lose :( ", computer, "cuts", player, "\n")
+		if gamedunn.computer == "scissors":
+			print("you lose :( ", gamedunn.computer, "cuts", player, "\n")
 			player_lives = player_lives - 1
 		else:
-			print("you win :) ", player, "smashes", computer, "\n")
-			computer_lives = computer_lives - 1
+			print("you win :) ", player, "smashes", gamedunn.computer, "\n")
+			gamedunn.computer_lives = gamedunn.computer_lives - 1
 
 	elif player.lower() =="scissors":
-		if computer == "rock":
-			print("""
-
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-
-					""")
-			print("you lose :( ", computer, "smashes", player, "\n")
+		if gamedunn.computer == "rock":
+			print("you lose :( ", gamedunn.computer, "smashes", player, "\n")
 			player_lives = player_lives - 1
 		else:
-			print("you win :) ", player, "cuts", computer, "\n")
-			computer_lives = computer_lives - 1
+			print("you win :) ", player, "cuts", gamedunn.computer, "\n")
+			gamedunn.computer_lives = gamedunn.computer_lives - 1
 
 	else:
 		print("That's not a valid option, try again")
@@ -110,11 +71,11 @@ while player is False:
 		elif (choice is "Y") or (choice is "y"):
 			#reset the game so that we can start all over again 
 			player_lives = 5 
-			computer_lives = 5 
+			gamedunn.computer_lives = 5 
 			player = False 
-			computer = choices[randint(0,2)]
+			gamedunn.computer = choices[randint(0,2)]
 
-	elif computer_lives is 0:
+	elif gamedunn.computer_lives is 0:
 		print("Congrats you won fuckass. Play again?")
 		choice = input ("Y/N")
 		print(choice)
@@ -126,10 +87,10 @@ while player is False:
 		elif (choice is "Y") or (choice is "y"):
 			#reset the game so that we can start all over again 
 			player_lives = 5 
-			computer_lives = 5 
+			gamedunn.computer_lives = 5 
 			player = False 
-			computer = choices[randint(0,2)]
+			gamedunn.computer = choices[randint(0,2)]
 	else: 
 		#need to check all of our conditions after checking for a tie
 		player = False
-		computer = choices[randint(0,2)]
+		gamedunn.computer_lives = choices[randint(0,2)]
